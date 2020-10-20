@@ -1,4 +1,7 @@
+import { enHello } from './modules/HelloWorld'
+
 export default {
+    ...enHello,
     login: {
         username: 'username'
     },

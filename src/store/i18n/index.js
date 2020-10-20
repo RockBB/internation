@@ -2,8 +2,6 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 // 引入element ui国际化文件
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
 import elen from 'element-ui/lib/locale/lang/en'
 import elcn from 'element-ui/lib/locale/lang/zh-CN'
 import ElementLocale from 'element-ui/lib/locale'
@@ -17,7 +15,6 @@ import cnLocale from './lang/zh'
 
 // 使用vue-i18n库
 Vue.use(VueI18n);
-Vue.use(ElementUI);
 
 // 获取当前语言（初始化时localStorage里没有存语言，默认为浏览器当前的语言）
 const lang = getStorage('lang') || getBrowserLang();
@@ -33,6 +30,7 @@ const messages = {
         ...cnLocale
     }
 };
+
 // 创建vueI18n实例并输出，在main.js中调用
 const i18n = new VueI18n({
     locale: lang,

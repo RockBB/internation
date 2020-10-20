@@ -1,13 +1,14 @@
 <template>
   <div class="home">
-<!--    <img alt="Vue logo" src="../assets/logo.png">-->
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <HelloWorld msg="Welcome to Your Vue.js App"/>
       <el-main>
-        <div class="block">
-          <span class="demonstration">{{ $t("chooseDate") }}</span>
-          <el-date-picker v-model="value1" type="date" placeholder="">
-          </el-date-picker>
-        </div>
+        <el-table :data="tableData" style="width: 100%">
+          <el-table-column :label="$t('date')" >
+              <span class="demonstration">{{ $t("chooseDate") }}</span>
+              <el-date-picker v-model="value1" type="date" placeholder=""></el-date-picker>
+          </el-table-column>
+          <el-table-column prop="name" :label="$t('title')"></el-table-column>
+        </el-table>
       </el-main>
   </div>
 </template>
@@ -22,9 +23,30 @@ export default {
     HelloWorld
   },
     data () {
-        return {
-            value1: '',
-        }
+      return {
+        value1: '',
+        tableData: [{
+            date: '2016-05-02',
+            name: this.$t('nike'),
+          }, {
+            date: '2016-05-04',
+            name: this.$t('adi'),
+          }, {
+            date: '2016-05-01',
+            name: this.$t('nb'),
+          }, {
+            date: '2016-05-03',
+            name: this.$t('ln'),
+          }]
+      }
     }
 }
 </script>
+
+<style>
+  .el-main {
+    background-color: #E9EEF3;
+    color: #333;
+    text-align: center;
+  }
+</style>
