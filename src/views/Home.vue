@@ -1,7 +1,14 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+<!--    <img alt="Vue logo" src="../assets/logo.png">-->
     <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <el-main>
+        <div class="block">
+          <span class="demonstration">{{ $t("chooseDate") }}</span>
+          <el-date-picker v-model="value1" type="date" placeholder="">
+          </el-date-picker>
+        </div>
+      </el-main>
   </div>
 </template>
 
@@ -13,6 +20,11 @@ export default {
   name: 'Home',
   components: {
     HelloWorld
-  }
+  },
+    data () {
+        return {
+            value1: '',
+        }
+    }
 }
 </script>
